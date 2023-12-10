@@ -8,7 +8,6 @@
     --dark-color: #081c15;
     --dark-bg-text: #d8f3dc;
     background-color: #95d5b2;
-    /* background-color: var(--dark-color); */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -20,10 +19,11 @@
     .button {
         background-color: #52b788;
     }
-
-
 }
 
+body {
+    font-family: 'Quicksand', sans-serif;
+}
 
 main {
     margin: 2rem 1.5rem;
@@ -119,19 +119,16 @@ button:hover {
     .postContainer:hover {
         background-color: #40916c;
     }
-    
 }
 
 .a {
     font-size: 1.5rem;
     font-weight: 700;
-    /* color: #1b4332; */
     border-bottom: 1px solid #52b788;
 }
 
 .b {
     font-size: 11px;
     font-weight:100;
-    /* color: #2d6a4f; */
     padding-top: 2px;
 }
