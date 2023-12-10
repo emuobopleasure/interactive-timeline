@@ -1,3 +1,4 @@
+// Set to store entered inputs
 const enteredInputs = new Set()
 
 const handleInput = (e) => {
@@ -51,7 +52,12 @@ const addToTimeline = (input) => {
     const uppercaseFormat = input.charAt(0).toUpperCase() + input.slice(1)
 
     postElement.innerHTML = `<div class='a'>${uppercaseFormat}</div> <div class='b'> ${postDetails} </div>`
-    // postElement.textContent = `${input} - ${postDetails}`
+
+    postElement.addEventListener('click', (e) => {
+        copyToClipboard(input)
+        alert('Copied to Clipboard')
+    })
+
     timeline.appendChild(postElement)
 
     document.querySelector('#inputField').value = ''
@@ -62,6 +68,15 @@ const addToTimeline = (input) => {
     // Clear the error message
     showError('');
 }
+
+const copyToClipboard = (text) => {
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textarea);
+  }
 
 //listening for the enter keypres in the inputField
 document.querySelector('#inputField').addEventListener('keypress', (e) => {
