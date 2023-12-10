@@ -30,20 +30,36 @@ main {
 }
 
 .form-div {
-    width: fit-content;
+    width: auto;
     margin: 0 auto;
 
 }
 
-.form-div div {
+.form-wrapper {
     display: flex;
+    flex-direction: column;
     padding: 1rem 0;
+    width: 100%;
+
+}
+
+.input-wrapper {
+    display: flex;
+    padding-top: 1rem;
     gap: 3px;
+    width: 100%;
+}
+
+.form-wrapper .error {
+    color: #ff5151;
+    font-style: italic;
+    margin-top: 2px;
 }
 
 input {
     border-radius: 1rem;
     height: 2rem;
+    width: 100%;
     border: 1px solid #40916c;
     padding-left: 10px;
     background-color: #d8f3dc;
@@ -51,9 +67,10 @@ input {
 }
 
 @media screen and (min-width: 768px) {
-    input {
-        width: 21rem;
-        max-width: 21rem;
+    .form-div {
+        width: 25rem;
+        max-width: 25rem;
+        margin: 0 auto;
     }
 }
 

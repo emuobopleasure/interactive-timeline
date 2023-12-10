@@ -1,3 +1,5 @@
+const enteredInputs = new Set()
+
 const handleInput = (e) => {
     let enteredData = document.querySelector('#inputField').value
     console.log(enteredData)
@@ -8,24 +10,35 @@ const handleInput = (e) => {
 
     //for checking alphanumeric characters
     if (!/^[0-9a-zA-Z]+$/.test(enteredData)) {
-        alert('Please enter numbers or alphanumeric characters only.')
+        showError('Please enter numbers or alphanumeric characters only.')
         return
     }
 
     //checking maximum length
     if (enteredData.length > 16) {
-        alert('Maximum characters allowed is 16')
+        showError('Maximum characters allowed is 16')
+        return
+    }
+
+    //checking for duplicate entry
+    if (enteredInputs.has(enteredData.toLowerCase())) {
+        showError('Duplicate entry! This input already exists.')
         return
     }
 
     // checking for duplicate characters
-    const duplicateNums = [...new Set(enteredData)]
-    if ( duplicateNums.length !== enteredData.length) {
-        alert('Duplicate Characters are not allowed')
-        return
-    }
+    // const duplicateNums = [...new Set(enteredData)]
+    // if ( duplicateNums.length !== enteredData.length) {
+    //     alert('Duplicate Characters are not allowed')
+    //     return
+    // }
 
     addToTimeline(enteredData)
+}
+
+const showError = (message) => {
+    const errorMsg = document.querySelector('.error')
+    errorMsg.textContent = message
 }
 
 const addToTimeline = (input) => {
@@ -42,6 +55,12 @@ const addToTimeline = (input) => {
     timeline.appendChild(postElement)
 
     document.querySelector('#inputField').value = ''
+
+    // Add input to the set of entered inputs
+    enteredInputs.add(input.toLowerCase())
+
+    // Clear the error message
+    showError('');
 }
 
 //listening for the enter keypres in the inputField
