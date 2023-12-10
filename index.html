@@ -13,22 +13,24 @@
 <body>
     <main>
         <section>
-            <div class="form-div">
-                <label for="inputField">
-                    Enter numbers or text
-                </label>
-                <div class="form-wrapper">
-                    <div class="input-wrapper">
-                        <input type="text" id="inputField">
-                        <button class="button" onclick="handleInput()" type="button">
-                            Post
-                        </button>
+            <div class="fixed">
+                <div class="form-div">
+                    <label for="inputField">
+                        Enter numbers or text
+                    </label>
+                    <div class="form-wrapper">
+                        <div class="input-wrapper">
+                            <input type="text" id="inputField">
+                            <button class="button" onclick="handleInput()" type="button">
+                                Add
+                            </button>
+                        </div>
+                        <div class="error"></div>
                     </div>
-                    <div class="error"></div>
                 </div>
             </div>
         </section>
-        <section>
+        <section class="timeline-section">
             <div id="timeline">
 
             </div>

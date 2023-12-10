@@ -29,6 +29,32 @@ main {
     margin: 2rem 1.5rem;
 }
 
+.fixed {
+    position: fixed;
+    background: #95d5b2;
+    width: 88vw;
+    top: 0;
+    padding-top: 21px;
+}
+
+@media (prefers-color-scheme: dark) {
+    .fixed {
+        background: #081c15;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .fixed {
+        width: 94vw;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .fixed {
+        width: 94vw;
+    }
+}
+
 .form-div {
     width: auto;
     margin: 0 auto;
@@ -96,6 +122,10 @@ button:hover {
     font-size: 1.5rem;
 }
 
+.timeline-section {
+    margin-top: 11rem;
+}
+
 #timeline {
     width: fit-content;
     margin: 3rem auto;
@@ -147,6 +177,6 @@ button:hover {
 
 .b {
     font-size: 11px;
-    font-weight:100;
+    font-weight: 100;
     padding-top: 2px;
 }
