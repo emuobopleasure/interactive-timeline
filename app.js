@@ -62,6 +62,15 @@ const addToTimeline = (input) => {
     //formatting text input to uppercase
     const uppercaseFormat = input.charAt(0).toUpperCase() + input.slice(1)
 
+    //generate five random usernames
+    for (let i = 1; i <= 5; i++) {
+        const randomUsername = generateRandomUsername()
+        const usernameDiv = document.createElement('div')
+        usernameDiv.classList.add('username')
+        usernameDiv.textContent = `User ${i}: ${randomUsername}`
+        postElement.appendChild(usernameDiv)
+    }
+
     postElement.innerHTML = `<div class='a'>${uppercaseFormat}</div> <div class='b'> ${postDetails} </div>`
 
     deleteBtn.addEventListener('click', (e) => {
@@ -85,6 +94,12 @@ const addToTimeline = (input) => {
 
     // Clear the error message
     showError('');
+}
+
+const generateRandomUsername = () => {
+    const userNames = ['Developer', 'Designer', 'Project Manager', 'Engineer']
+    const randomNames = userNames[Math.floor(Math.random() * userNames.length)]
+    return randomNames
 }
 
 const copyToClipboard = (text) => {
