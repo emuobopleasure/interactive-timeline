@@ -62,16 +62,35 @@ const addToTimeline = (input) => {
     //formatting text input to uppercase
     const uppercaseFormat = input.charAt(0).toUpperCase() + input.slice(1)
 
-    //generate five random usernames
-    for (let i = 1; i <= 5; i++) {
-        const randomUsername = generateRandomUsername()
-        const usernameDiv = document.createElement('div')
-        usernameDiv.classList.add('username')
-        usernameDiv.textContent = `User ${i}: ${randomUsername}`
-        postElement.appendChild(usernameDiv)
-    }
+    // Create divs for input and date
+    const inputDiv = document.createElement('div');
+    inputDiv.classList.add('a');
+    inputDiv.textContent = uppercaseFormat;
 
-    postElement.innerHTML = `<div class='a'>${uppercaseFormat}</div> <div class='b'> ${postDetails} </div>`
+    const dateDiv = document.createElement('div');
+    dateDiv.classList.add('b');
+    dateDiv.innerHTML = `<div> ${postDetails} </div>`
+
+    // container for usernames
+    const usernamesContainer = document.createElement('div');
+    usernamesContainer.classList.add('usernameContainer')
+
+    // Generating five random usernames
+    const randomUsername = generateRandomUsername();
+    const usernameDiv = document.createElement('div');
+    usernameDiv.classList.add('username');
+    usernameDiv.textContent = `${randomUsername}`;
+    // usernamesContainer.appendChild(usernameDiv);
+    dateDiv.appendChild(usernameDiv)
+    console.log('ab')
+
+
+    // Adding input, date, and usernames container to postElement
+    postElement.appendChild(inputDiv);
+    postElement.appendChild(dateDiv);
+    postElement.appendChild(deleteBtn);
+    postElement.appendChild(copyBtn);
+    // dateDiv.appendChild(usernamesContainer);
 
     deleteBtn.addEventListener('click', (e) => {
         timeline.removeChild(postElement)
@@ -83,9 +102,8 @@ const addToTimeline = (input) => {
         alert(`${uppercaseFormat} Successfully Copied to Clipboard`)
     })
 
-    postElement.appendChild(deleteBtn)
-    postElement.appendChild(copyBtn)
-    timeline.appendChild(postElement)
+    // add postElement to timeline
+    timeline.appendChild(postElement);
 
     document.querySelector('#inputField').value = ''
 
@@ -97,9 +115,10 @@ const addToTimeline = (input) => {
 }
 
 const generateRandomUsername = () => {
-    const userNames = ['Developer', 'Designer', 'Project Manager', 'Engineer']
-    const randomNames = userNames[Math.floor(Math.random() * userNames.length)]
-    return randomNames
+    const userNames = ['Developer', 'Designer', 'Contributor', 'Engineer', 'Trainee']
+    const randomIndex = Math.floor(Math.random() * userNames.length)
+    // console.log(randomIndex)
+    return userNames[randomIndex]
 }
 
 const copyToClipboard = (text) => {
@@ -109,7 +128,7 @@ const copyToClipboard = (text) => {
     textarea.select();
     document.execCommand('copy');
     document.body.removeChild(textarea);
-  }
+}
 
 //listening for the enter keypres in the inputField
 document.querySelector('#inputField').addEventListener('keypress', (e) => {
