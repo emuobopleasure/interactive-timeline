@@ -144,7 +144,6 @@ button:hover {
     border-radius: 1.3rem;
     background-color: #d8f3dc;
     box-shadow: 0.3em 0.3em 1em rgba(45, 106, 79, 0.6);
-    cursor: copy;
     position: relative;
 
 }
@@ -177,9 +176,20 @@ button:hover {
     right: 16px;
     top: 7px;
     border-radius: 0.6rem;
+    padding: 2px 5px;
     color: #ff0000;
     border: 1px solid #ff0000;
     /* background: none; */
+}
+
+.copy {
+    position: absolute;
+    right: 45px;
+    top: 7px;
+    border-radius: 0.6rem;
+    padding: 2px 5px;
+    border: 1px solid #ffffff;
+    cursor: copy;
 }
 
 .a {

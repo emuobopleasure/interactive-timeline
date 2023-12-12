@@ -55,6 +55,10 @@ const addToTimeline = (input) => {
     deleteBtn.classList.add('delete')
     deleteBtn.innerHTML = '<i class="fa fa-trash-o" aria-hidden="true"></i>'
 
+    const copyBtn = document.createElement('button')
+    copyBtn.classList.add('copy')
+    copyBtn.innerHTML = '<i class="fa fa-files-o" aria-hidden="true"></i>'
+
     //formatting text input to uppercase
     const uppercaseFormat = input.charAt(0).toUpperCase() + input.slice(1)
 
@@ -65,12 +69,13 @@ const addToTimeline = (input) => {
         alert(`${uppercaseFormat} successfully deleted!`)
     })
 
-    // postElement.addEventListener('click', (e) => {
-    //     copyToClipboard(uppercaseFormat)
-    //     alert(`${uppercaseFormat} Successfully Copied to Clipboard`)
-    // })
+    copyBtn.addEventListener('click', (e) => {
+        copyToClipboard(uppercaseFormat)
+        alert(`${uppercaseFormat} Successfully Copied to Clipboard`)
+    })
 
     postElement.appendChild(deleteBtn)
+    postElement.appendChild(copyBtn)
     timeline.appendChild(postElement)
 
     document.querySelector('#inputField').value = ''
