@@ -52,7 +52,7 @@ main {
 
 @media screen and (min-width: 1000px) {
     .fixed {
-        width: 94vw;
+        width: 97vw;
     }
 }
 
@@ -84,14 +84,15 @@ main {
 }
 
 input {
-    border-radius: 1rem;
+    border-radius: 10px;
     height: 2rem;
     width: 100%;
     border: 1px solid #40916c;
-    padding-left: 10px;
+    padding-left: 14px;
+    padding-top: 7px;
+    padding-bottom: 7px;
     background-color: #d8f3dc;
     font-size: larger;
-
 }
 
 input::placeholder {
@@ -100,8 +101,8 @@ input::placeholder {
 
 @media screen and (min-width: 768px) {
     .form-div {
-        width: 25rem;
-        max-width: 25rem;
+        width: 35rem;
+        max-width: 35rem;
         margin: 0 auto;
     }
 }
@@ -110,8 +111,8 @@ button {
     all: unset;
     background-color: #1b4332;
     color: white;
-    padding: 1px 10px;
-    border-radius: 1rem;
+    padding: 1px 13px;
+    border-radius: 10px;
     box-shadow: 0.3em 0.3em 1em rgba(45, 106, 79, 0.3);
     cursor: pointer;
 }
