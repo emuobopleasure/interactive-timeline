@@ -2,12 +2,12 @@
 const enteredInputs = new Set()
 
 const handleInput = (e) => {
-    let enteredData = document.querySelector('#inputField').value
-    console.log(enteredData)
+    let enteredData = document.querySelector('#inputField').value.trim()
+    console.log('aa', enteredData)
 
     //for removing whitespace
-    enteredData = enteredData.replace(/\s/g, '')
-    console.log('n', enteredData)
+    // enteredData = enteredData.replace(/\s/g, '')
+    // console.log('bb', enteredData)
 
     //for checking alphanumeric characters
     if (!/^[0-9a-zA-Z]+$/.test(enteredData)) {
@@ -82,7 +82,7 @@ const addToTimeline = (input) => {
     usernameDiv.textContent = `${randomUsername}`;
     // usernamesContainer.appendChild(usernameDiv);
     dateDiv.appendChild(usernameDiv)
-    console.log('ab')
+    // console.log('ab')
 
 
     // Adding input, date, and usernames container to postElement
@@ -99,7 +99,15 @@ const addToTimeline = (input) => {
 
     copyBtn.addEventListener('click', (e) => {
         copyToClipboard(uppercaseFormat)
-        alert(`${uppercaseFormat} Successfully Copied to Clipboard`)
+        
+        //displaying notification on the screen
+        const notificationEl = document.querySelector('#copyNotification')
+        notificationEl.textContent = `${uppercaseFormat} copied Successfully!`
+
+        //clearing the notification text after 2 seconds
+        setTimeout(() => {
+            notificationEl.textContent = ''
+        }, 2000)
     })
 
     // add postElement to timeline

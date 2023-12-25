@@ -221,3 +221,7 @@ button:hover {
         flex-basis: 11%;
     }
 }
+
+#copyNotification {
+    color: white;
+}
