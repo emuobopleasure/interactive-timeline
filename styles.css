@@ -27,6 +27,7 @@ body {
 
 main {
     margin: 2rem 1.5rem;
+    position: relative;
 }
 
 .fixed {
@@ -224,4 +225,30 @@ button:hover {
 
 #copyNotification {
     color: white;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    background-color: rgba(81, 121, 103, 0.5);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 100;
+    /* top: 4rem;
+    left: 12vw; */
+}
+
+.modal-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 35vh;
+}
+
+.modal-content {
+    /* margin: 5rem auto; */
+    background-color: #40916c;
+    padding: 1rem 0.5rem;
+    border-radius: 0.5rem;
 }

@@ -90,18 +90,47 @@ const addToTimeline = (input) => {
     postElement.appendChild(dateDiv);
     postElement.appendChild(deleteBtn);
     postElement.appendChild(copyBtn);
-    // dateDiv.appendChild(usernamesContainer);
+    // dateDiv.appendChild(usernamesContainer)
+
+    const deleteModal = document.querySelector('#deleteModal')
+    const confirmDeleteBtn = document.querySelector('#confirmDelete')
+    const cancelDelete = document.querySelector('#cancelDelete')
+    const deleteItemNameSpan = document.querySelector('#deleteItemName')
 
     deleteBtn.addEventListener('click', (e) => {
+        //seeting the name of the item tobe deleted on the modal
+        deleteItemNameSpan.textContent = uppercaseFormat
+
+        deleteModal.style.display = 'block'
+
+
+    })
+
+    confirmDeleteBtn.addEventListener('click', (e) => {
+        deleteModal.style.display = 'none'
+
+        //deleting an item
         timeline.removeChild(postElement)
-        alert(`${uppercaseFormat} successfully deleted!`)
+
+        //displaying delete notification
+        const notificationEl = document.querySelector('#notification')
+        notificationEl.textContent = `${uppercaseFormat} successfully deleted`
+
+        //clearing the notification text after 2 seconds
+        setTimeout(() => {
+            notificationEl.textContent = ''
+        }, 2000)
+    })
+
+    cancelDelete.addEventListener('click', (e) => {
+        deleteModal.style.display = 'none'
     })
 
     copyBtn.addEventListener('click', (e) => {
         copyToClipboard(uppercaseFormat)
-        
+
         //displaying notification on the screen
-        const notificationEl = document.querySelector('#copyNotification')
+        const notificationEl = document.querySelector('#notification')
         notificationEl.textContent = `${uppercaseFormat} copied Successfully!`
 
         //clearing the notification text after 2 seconds
